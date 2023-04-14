@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  ts-array-filter:
+    image: node:18-alpine
+    entrypoint: 'tail -f /dev/null'
+    volumes:
+      - .:/app
+    environment:
+      - NODE_AUTH_TOKEN=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

@@ -1,0 +1,32 @@
+{
+  "name": "ts-array-filter",
+  "version": "1.0.0",
+  "description": "A TypeScript library that provides a simple and intuitive .where(...) method for filtering arrays based on specified filters.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurkowalsky/ts-array-filter.git"
+  },
+  "keywords": [
+    "array",
+    "filter",
+    "where",
+    "typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurkowalsky/ts-array-filter/issues"
+  },
+  "homepage": "https://github.com/arthurkowalsky/ts-array-filter#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "jest": "^29.5.0",
+    "ts-jest" : "^29.1.0",
+    "@types/jest": "^29.5.0"
+  }
+}
