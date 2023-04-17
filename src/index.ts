@@ -6,12 +6,32 @@ declare global {
     }
 }
 
-type FilterOperator = '<' | '<=' | '==' | '>' | '>=' | '!=' | 'array-contains' | 'array-contains-any' | 'in' | 'not-in';
+export type FilterOperator =
+    '<'
+    | '<='
+    | '=='
+    | '>'
+    | '>='
+    | '!='
+    | 'array-contains'
+    | 'array-contains-any'
+    | 'in'
+    | 'not-in'
+    | 'startswith'
+    | 'endswith'
+    | 'contains'
+    | 'regex'
+    | 'null'
+    | 'not-null'
+    | 'true'
+    | 'false'
+    | 'exists'
+    | 'not-exists';
 
 interface Filter<T> {
     field: keyof T;
     operator: FilterOperator;
-    value: any;
+    value?: any;
 }
 
 Array.prototype.where = function <T>(filters: Filter<T>[]): T[] {
@@ -42,6 +62,26 @@ Array.prototype.where = function <T>(filters: Filter<T>[]): T[] {
                     return Array.isArray(filter.value) && filter.value.includes(fieldValue);
                 case 'not-in':
                     return Array.isArray(filter.value) && !filter.value.includes(fieldValue);
+                case 'startswith':
+                    return typeof fieldValue === 'string' && fieldValue.startsWith(filter.value);
+                case 'endswith':
+                    return typeof fieldValue === 'string' && fieldValue.endsWith(filter.value);
+                case 'contains':
+                    return typeof fieldValue === 'string' && fieldValue.includes(filter.value);
+                case 'regex':
+                    return typeof fieldValue === 'string' && new RegExp(filter.value).test(fieldValue);
+                case 'null':
+                    return fieldValue === null;
+                case 'not-null':
+                    return fieldValue !== null;
+                case 'true':
+                    return fieldValue === true;
+                case 'false':
+                    return fieldValue === false;
+                case 'exists':
+                    return fieldValue !== undefined;
+                case 'not-exists':
+                    return fieldValue === undefined;
                 default:
                     return false;
             }
