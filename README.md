@@ -1,6 +1,6 @@
 # TS Array Filter
 
-A TypeScript library that provides a simple and intuitive .where(...) method for filtering arrays based on specified filters. It includes a generic filter interface for better type checking and autocompletion.
+A TypeScript library that provides a simple and intuitive .where(...) method for filtering arrays based on specified filters. It includes a generic filter interface for better type checking and autocompletion. Version 1.1.0 introduces new filters for enhanced functionality.
 
 ## Installation
 
@@ -59,6 +59,16 @@ const result = data.where([
 8. array-contains-any
 9. in
 10. not-in
+11. startswith 
+12. endswith 
+13. contains 
+14. regex 
+15. null 
+16. not-null 
+17. true 
+18. false 
+19. exists 
+20. not-exists
 
 ## Contributing
 

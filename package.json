@@ -1,6 +1,6 @@
 {
   "name": "ts-array-filter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A TypeScript library that provides a simple and intuitive .where(...) method for filtering arrays based on specified filters.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
