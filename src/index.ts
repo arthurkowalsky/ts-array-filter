@@ -35,7 +35,7 @@ interface Filter<T> {
     value?: any;
 }
 
-const hhh = function<T> (item: T, filter: Filter<T>): boolean {
+const isFiltered = function<T> (item: T, filter: Filter<T>): boolean {
     const fieldValue = item[filter.field as keyof T];
 
     switch (filter.operator) {
@@ -88,7 +88,7 @@ Array.prototype.where = function <T>(filters: Filter<T>[]): T[] {
     const data = this as T[];
 
     return data.filter((item: T) => {
-        return filters.every((filter: Filter<T>) => hhh(item, filter));
+        return filters.every((filter: Filter<T>) => isFiltered(item, filter));
     });
 };
 
@@ -96,6 +96,6 @@ Array.prototype.orWhere = function <T>(filters: Filter<T>[]): T[] {
     const data = this as T[];
 
     return data.filter((item: T) => {
-        return filters.some((filter: Filter<T>) => hhh(item, filter));
+        return filters.some((filter: Filter<T>) => isFiltered(item, filter));
     });
 };
