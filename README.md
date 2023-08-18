@@ -43,12 +43,10 @@ Apply filters using the .where(...) method:
 ```typescript
 const result = data.where([
     { field: 'id', operator: '>', value: 1 },
-    { field: 'tags', operator: 'array-contains', value: 'tag3' },
+    { field: 'tags', operator: 'array-contains', value: 'tag2' },
 ]);
 // Expected output:  [
-//    { id: 1, name: 'Example 1', tags: ['tag1', 'tag2'] },
 //    { id: 2, name: 'Example 2', tags: ['tag2', 'tag3'] },
-//    { id: 3, name: 'Example 3', tags: ['tag1', 'tag3'] },
 // ]
 ```
 
